@@ -24,10 +24,12 @@ goのコンテナに入る
 ```
 docker exec -it go-todo bash
 ```
-次のコマンドを実行して、同じような出力がされればok
+`main.go`を実行。
 ```
-$ go run main.py
-
+go run main.go
+```
+以下のような出力になればOK。
+```
 go: downloading gorm.io/driver/mysql v1.5.2
 go: downloading gorm.io/gorm v1.25.5
 go: downloading github.com/go-sql-driver/mysql v1.7.0
@@ -41,7 +43,7 @@ goのコンテナを抜けて、mysqlのコンテナに入る
 docker exec -it db-todo bash
 ```
 
-次のコマンドで`mysql`と接続する。(passwordはREADME通りに.envを設定していればroot_passowrd)
+mysqlと接続する。(passwordはREADME通りに.envを設定していれば`root_passowrd`)
 ```
 mysql -u root -p
 ```
