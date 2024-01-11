@@ -20,6 +20,11 @@ docker立ち上げ
 ```
 docker-compose up -d --build
 ```
+※`network golang_test_network declared as external, but could not be found`と出た場合は、以下も実行した後に、dockerを再度立ち上げる。
+```
+docker network create golang_test_network
+```
+
 goのコンテナに入る
 ```
 docker exec -it go-todo bash
