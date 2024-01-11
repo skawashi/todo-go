@@ -48,11 +48,11 @@ mysql -u root -p
 
 mysqlに接続できたら
 ```
-    use test_database;
+use test_database;
 ```
 を実行し、次に
 ```
-    show tables;
+show tables;
 ```
 を実行する。次のように出力されたら、正しくテーブルが作成されている。
 ```
