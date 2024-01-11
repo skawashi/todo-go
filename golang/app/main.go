@@ -5,18 +5,10 @@ import (
 	"log"
 	"os"
 
+	"app/model"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
-
-// MySQLに作成するUserテーブルの定義
-type User struct {
-	// gorm.Modelをつけると、idとCreatedAtとUpdatedAtとDeletedAtが作られる
-	gorm.Model
-
-	Name string
-	Age  int
-}
 
 // DBを起動させる
 func dbInit() *gorm.DB {
@@ -39,7 +31,13 @@ func main() {
 	// DB起動
 	db := dbInit()
 	// Userテーブル作成
-	db.AutoMigrate(&User{})
+	// db.AutoMigrate(
+	// 	&User{}
+	// )
+	db.AutoMigrate(
+		&model.User{},
+		&model.Todo{},
+	)
 }
 
 
