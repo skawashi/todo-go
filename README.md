@@ -67,5 +67,6 @@ show tables;
 | Tables_in_test_database |
 +-------------------------+
 | users                   |
+| todos                   |
 +-------------------------+
 ```
