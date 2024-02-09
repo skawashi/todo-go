@@ -8,6 +8,7 @@ import (
 	"app/model"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	"github.com/gin-gonic/gin"
 )
 
 // DBを起動させる
@@ -38,6 +39,14 @@ func main() {
 		&model.User{},
 		&model.Todo{},
 	)
+
+	r := gin.Default()
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message":"Hello World",
+		})
+	})
+	r.Run() // 0.0.0.0:8080 でサーバーを立てます。
 }
 
 
