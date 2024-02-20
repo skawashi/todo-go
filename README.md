@@ -57,7 +57,7 @@ docker-compose run --rm go go mod tidy
 docker-compose up
 ```
 
-別のターミナルを立ち上げて以下のコマンドを実行してメッセージが帰ってくればok
+別のターミナルを立ち上げて以下のコマンドを実行してメッセージが返ってくればok
 ```
 curl -X GET "http://0.0.0.0:8080/"
 ```
