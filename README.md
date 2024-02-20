@@ -17,9 +17,10 @@ MYSQL_ROOT_PASSWORD=root_password
 ```
 
 go.mod 作成
-goのモジュール管理ファイルを作成する
+Goのモジュール管理ファイルを作成する
+`golang/app`ディレクトリに移動して以下のコマンドを実行
 ```
-cd app && go mod init app
+go mod init app
 ```
 
 ビルドの実行
@@ -35,6 +36,20 @@ docker network create golang_test_network
 ```
 docker-compose run --rm go air init
 docker-compose run --rm go go mod tidy
+```
+※こちらはマストの作業ではないが、`golang`ディレクトリに移動し,`tree`コマンドで以下の構成になって入ればOK
+```
+.
+├── Dockerfile
+└── app
+    ├── go.mod
+    ├── go.sum
+    ├── main.go
+    ├── model
+    │   ├── todo.go
+    │   └── user.go
+    └── tmp
+        └── main
 ```
 
 コンテナの立ち上げ
