@@ -62,7 +62,7 @@ docker-compose up
 curl -X GET "http://0.0.0.0:8080/"
 ```
 
-mysqlと接続する。(passwordはREADME通りに.envを設定していれば`root_passowrd`)
+mysqlと接続する。(passwordはREADME通りに.envを設定していれば`root_password`)
 ```
 mysql -u root -p
 ```
