@@ -16,36 +16,35 @@ MYSQL_PASSWORD=password
 MYSQL_ROOT_PASSWORD=root_password
 ```
 
-docker立ち上げ
+go.mod 作成
+goのモジュール管理ファイルを作成する
 ```
-docker-compose up -d --build
+cd app && go mod init app
 ```
-※`network golang_test_network declared as external, but could not be found`と出た場合は、以下も実行した後に、dockerを再度立ち上げる。
+
+ビルドの実行
+```
+cd ../../ && docker-compose build
+```
+※`network golang_test_network declared as external, but could not be found`と出た場合は、以下も実行した後に、dockerを再度ビルドする。
 ```
 docker network create golang_test_network
 ```
 
-goのコンテナに入る
+以下のコマンドを実行
 ```
-docker exec -it go-todo bash
-```
-`main.go`を実行。
-```
-go run main.go
-```
-以下のような出力になればOK。
-```
-go: downloading gorm.io/driver/mysql v1.5.2
-go: downloading gorm.io/gorm v1.25.5
-go: downloading github.com/go-sql-driver/mysql v1.7.0
-go: downloading github.com/jinzhu/now v1.1.5
-go: downloading github.com/jinzhu/inflection v1.0.0
-db connected!!
+docker-compose run --rm go air init
+docker-compose run --rm go go mod tidy
 ```
 
-goのコンテナを抜けて、mysqlのコンテナに入る
+コンテナの立ち上げ
 ```
-docker exec -it db-todo bash
+docker-compose up
+```
+
+別のターミナルを立ち上げて以下のコマンドを実行してメッセージが帰ってくればok
+```
+curl -X GET "http://0.0.0.0:8080/"
 ```
 
 mysqlと接続する。(passwordはREADME通りに.envを設定していれば`root_passowrd`)
