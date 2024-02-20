@@ -16,8 +16,7 @@ MYSQL_PASSWORD=password
 MYSQL_ROOT_PASSWORD=root_password
 ```
 
-go.mod 作成
-Goのモジュール管理ファイルを作成する
+Goのモジュール管理ファイルを作成する。
 `golang/app`ディレクトリに移動して以下のコマンドを実行
 ```
 go mod init app
