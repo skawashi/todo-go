@@ -22,7 +22,7 @@ go.work
 
 # add
 .env
-go.mod
-go.sum
 .air.toml
+.DS_Store
+tmp
 
